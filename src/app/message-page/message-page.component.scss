@@ -1,0 +1,14 @@
+.content-box {
+    height: 400px;
+    overflow-y: scroll;
+    background-color: #000;
+}
+
+.message-item {
+    // padding: 10px 5px;
+}
+
+:host /deep/.ant-timeline-item-content {
+    font-size: 15px !important;
+    color: #fff;
+}

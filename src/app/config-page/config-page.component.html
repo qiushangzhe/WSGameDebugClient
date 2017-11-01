@@ -1,0 +1,23 @@
+<nz-content>
+    <div nz-row *ngIf="message.getMessageList().length>0">
+        <div nz-col [nzSpan]="12">
+            <nz-select style="width:100%" [(ngModel)]="selectedMessage">
+                <nz-option *ngFor="let option of select" [nzLabel]="option.desc" [nzValue]="option">
+                </nz-option>
+            </nz-select>
+        </div>
+        <div nz-col [nzSpan]="12" style="min-height:200px">
+            <span *ngIf="selectedMessage">
+                    {{selectedMessage.data}}
+            </span>
+        </div>
+    </div>
+    <div nz-row [nzType]="'flex'" [nzJustify]="'left'">
+        <div nz-col [nzSpan]="8">
+            <button nz-button (click)="addMessage()">添加消息</button>
+        </div>
+        <div nz-col [nzSpan]="8">
+            <button nz-button (click)="deleteMessage()">删除选中消息</button>
+        </div>
+    </div>
+</nz-content>

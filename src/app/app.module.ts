@@ -1,18 +1,42 @@
+import { MessageService } from './service/message.service';
+import { StorageService } from './service/storage.service';
+import { CommonService } from './service/common.service';
+import { ApiService } from './service/api.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
+import { ConnectPageComponent } from './connect-page/connect-page.component';
+import { NgZorroAntdModule } from 'ng-zorro-antd';
+import { FormsModule } from '@angular/forms';
+import { MessagePageComponent } from './message-page/message-page.component';
+import { ConfigPageComponent } from './config-page/config-page.component';
+import { AddMessageComponent } from './dialog/add-message/add-message.component';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ConnectPageComponent,
+    MessagePageComponent,
+    ConfigPageComponent,
+    AddMessageComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    NgZorroAntdModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    ApiService,
+    CommonService,
+    StorageService,
+    MessageService
+  ],
+  entryComponents:[
+    AddMessageComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

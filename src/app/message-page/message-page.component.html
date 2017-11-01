@@ -1,0 +1,25 @@
+<nz-content>
+    <div nz-row>
+        <div nz-col [nzSpan]="4">
+            <button nz-button (click)="clearAllMessage()">清屏</button>
+        </div>
+        <div nz-col [nzSpan]="8">
+            <button nz-button (click)="scrollBottom()">滚动到底部</button>
+        </div>
+    </div>
+    <div class="content-box" #box>
+        <nz-timeline>
+            <nz-timeline-item class="message-item" *ngFor="let item of api.messageList">{{item}}</nz-timeline-item>
+        </nz-timeline>
+    </div>
+    <div nz-row>
+        <div nz-col [nzSpan]="12">
+            <nz-select style="width:100%;" [(ngModel)]="selectMessage">
+                <nz-option *ngFor="let item of messageList" [nzValue]="item.data" [nzLabel]="item.desc"></nz-option>
+            </nz-select>
+        </div>
+        <div nz-col [nzSpan]="12">
+            <button nz-button (click)="sendData()" [nzType]="'primary'" [nzSize]="'small'">发送</button>
+        </div>
+    </div>
+</nz-content>

@@ -1,0 +1,57 @@
+<nz-content *ngIf="api.isconnect === false">
+    <nz-spin [nzSpinning]="connectClicked" [nzTip]="'服务器连接中...'" [nzSize]="'large'">
+        <div nz-row [nzType]="'flex'" [nzAlign]="'middle'" class="item">
+            <div nz-col [nzSpan]="6" class="key">
+                <nz-tag [nzColor]="'green'">ip地址</nz-tag>
+            </div>
+            <div nz-col [nzSpan]="18">
+                <nz-input [(ngModel)]="ip" [nzDisabled]="isLocalhost" [nzSize]="'large'">
+                    <ng-template #addOnBefore>
+                        <nz-select style="width: 80px;" [ngModel]="protol">
+                            <nz-option [nzLabel]="'ws://'" [nzValue]="'ws://'"></nz-option>
+                            <nz-option [nzLabel]="'http://'" [nzValue]="'http://'"></nz-option>
+                        </nz-select>
+                    </ng-template>
+                </nz-input>
+            </div>
+        </div>
+        <div nz-row [nzType]="'flex'" [nzAlign]="'middle'" class="item">
+            <div nz-col [nzSpan]="6" class="key">
+                <nz-tag [nzColor]="'green'">本地调试</nz-tag>
+            </div>
+            <div nz-col [nzSpan]="18" class="value">
+                <nz-switch [(ngModel)]="isLocalhost" (click)="clickLocalHost()">
+                    <span checked>开启</span>
+                    <span unchecked>关闭</span>
+                </nz-switch>
+            </div>
+        </div>
+        <div nz-row [nzType]="'flex'" [nzAlign]="'middle'" class="item">
+            <div nz-col [nzSpan]="6" class="key">
+                <nz-tag [nzColor]="'green'">端口</nz-tag>
+            </div>
+            <div nz-col [nzSpan]="10" class="value">
+                <nz-input [(ngModel)]="port" [nzSize]="'large'"></nz-input>
+            </div>
+            <div nz-col [nzSpan]="8" class="value">
+                <button nz-button (click)="setDefaultPort()">设为默认端口</button>
+            </div>
+        </div>
+        <div nz-row [nzType]="'flex'" [nzAlign]="'middle'" class="item">
+            <div nz-col [nzSpan]="6" class="key">
+                <nz-tag [nzColor]="'green'">操作</nz-tag>
+            </div>
+            <div nz-col [nzSpan]="8" class="value">
+                <button nz-button (click)="connect()" [disabled]="connectClicked">连接服务器</button>
+            </div>
+            <div nz-col [nzSpan]="10" class="value">
+                <button nz-button (click)="saveConfig()">保存当前信息</button>
+            </div>
+        </div>
+    </nz-spin>
+</nz-content>
+<nz-content *ngIf="api.isconnect === true">
+    <div class="band">
+        当前已与服务器{{ip}}:{{port}}建立连接
+    </div>
+</nz-content>
