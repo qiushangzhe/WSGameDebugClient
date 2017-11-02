@@ -24,11 +24,11 @@ export class MessageService {
     }
 
     deleteMessage(desc){
-        console.log(desc);
+        // console.log(desc);
         let list = this.storage.getObject('message');
         for(let i in list){
             if(list[i].desc === desc){
-                list.splice(i,1);
+                list.splice(Number(i),1);
                 break;
             }
         }

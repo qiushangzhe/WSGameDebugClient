@@ -2,8 +2,8 @@ import { Router } from '@angular/router';
 import { AddMessageComponent } from './../dialog/add-message/add-message.component';
 import { NzModalService } from 'ng-zorro-antd';
 import { MessageService } from './../service/message.service';
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit,ViewChild } from '@angular/core';
+import { JsonEditorComponent, JsonEditorOptions } from 'angular4-jsoneditor/jsoneditor/jsoneditor.component';
 @Component({
   selector: 'component-config-page',
   templateUrl: './config-page.component.html',
@@ -12,14 +12,19 @@ import { Component, OnInit } from '@angular/core';
 export class ConfigPageComponent implements OnInit {
   selectedMessage = null;
   select = this.message.getMessageList();
+  @ViewChild(JsonEditorComponent) editor: JsonEditorComponent;
+  public editorOptions: JsonEditorOptions;
   constructor(
     public message : MessageService,
     private confirmServ: NzModalService,
     private router :Router
-  ) { }
+  ) { 
+    this.editorOptions = new JsonEditorOptions();
+    this.editorOptions.modes = ['code','view'];
+  }
 
   ngOnInit() {
-    console.dir(this.message.getMessageList());
+
   }
 
   deleteMessage(){

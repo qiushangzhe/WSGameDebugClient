@@ -6,12 +6,20 @@
         <nz-input [(ngModel)]="name" name="name" [nzPlaceHolder]="'输入消息名'" [nzSize]="'large'"></nz-input>
     </div>
 </div>
-<div nz-row [nzType]="'flex'" [nzAlign]="'middle'">
+<!-- <div nz-row [nzType]="'flex'" [nzAlign]="'middle'">
     <div nz-col [nzSpan]="4">
         消息体:
     </div>
     <div nz-col [nzSpan]="20">
         <nz-input [nzType]="'textarea'" [(ngModel)]="body" name="body" [nzPlaceHolder]="'输入消息体'" [nzSize]="'large'"></nz-input>
+    </div>
+</div> -->
+<div nz-row [nzType]="'flex'" [nzAlign]="'middle'" style="margin-top:10px;">
+    <div nz-col [nzSpan]="4">
+        消息体:
+    </div>
+    <div nz-col [nzSpan]="20" style="height:400px;">
+        <json-editor [options]="editorOptions" [data]="body"></json-editor>Î
     </div>
 </div>
 <div nz-row [nzType]="'flex'" [nzAlign]="'middle'">

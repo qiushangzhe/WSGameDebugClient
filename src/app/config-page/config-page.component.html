@@ -6,10 +6,10 @@
                 </nz-option>
             </nz-select>
         </div>
-        <div nz-col [nzSpan]="12" style="min-height:200px">
-            <span *ngIf="selectedMessage">
-                    {{selectedMessage.data}}
-            </span>
+        <div nz-col [nzSpan]="12">
+            <div *ngIf="selectedMessage" style="height:400px">
+                <json-editor [options]="editorOptions" [data]="selectedMessage.data"></json-editor>Î
+            </div>
         </div>
     </div>
     <div nz-row [nzType]="'flex'" [nzJustify]="'left'">

@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { MessagePageComponent } from './message-page/message-page.component';
 import { ConfigPageComponent } from './config-page/config-page.component';
 import { AddMessageComponent } from './dialog/add-message/add-message.component';
+import { Ng4JsonEditorModule } from 'angular4-jsoneditor' 
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +27,8 @@ import { AddMessageComponent } from './dialog/add-message/add-message.component'
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
-    NgZorroAntdModule.forRoot()
+    NgZorroAntdModule.forRoot(),
+    Ng4JsonEditorModule
   ],
   providers: [
     ApiService,

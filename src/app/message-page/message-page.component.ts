@@ -37,6 +37,4 @@ export class MessagePageComponent implements OnInit {
     this.api.sendData(this.selectMessage);
     this.scrollBottom();
   }
-
-
 }

@@ -53,7 +53,7 @@ export class ApiService {
     }
 
     sendData(data){
-        this.websocketHandle.send(data);
+        this.websocketHandle.send(JSON.stringify(data));
     }
 
 

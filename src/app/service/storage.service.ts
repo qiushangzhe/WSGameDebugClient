@@ -21,7 +21,7 @@ export class StorageService {
         this.localStorage[key] = JSON.stringify(value);
     }
 
-    public getObject(key:string):any {
+    public getObject(key:string):Array<any> {
         if(this.localStorage[key]){
             return JSON.parse(this.localStorage[key]);
         }else {
