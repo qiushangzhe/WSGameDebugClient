@@ -1,7 +1,8 @@
+import { MjactionComponent } from './../dialog/mjaction/mjaction.component';
 import { MessageService } from './../service/message.service';
 import { ApiService } from './../service/api.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
-
+import { NzModalService } from 'ng-zorro-antd';
 @Component({
   selector: 'component-message-page',
   templateUrl: './message-page.component.html',
@@ -13,7 +14,8 @@ export class MessagePageComponent implements OnInit {
   @ViewChild('box') box;
   constructor(
     public api:ApiService,
-    public message:MessageService
+    public message:MessageService,
+    public modalServer:NzModalService
   ) { 
 
   }
@@ -36,5 +38,13 @@ export class MessagePageComponent implements OnInit {
     }
     this.api.sendData(this.selectMessage);
     this.scrollBottom();
+  }
+
+  openMjActionPanel(){
+      this.modalServer.open({
+        title : '麻将debug操作',
+        content : MjactionComponent,
+        footer:false
+      });
   }
 }

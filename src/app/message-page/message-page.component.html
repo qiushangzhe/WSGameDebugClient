@@ -18,8 +18,11 @@
                 <nz-option *ngFor="let item of messageList" [nzValue]="item.data" [nzLabel]="item.desc"></nz-option>
             </nz-select>
         </div>
-        <div nz-col [nzSpan]="12">
+        <div nz-col [nzSpan]="6">
             <button nz-button (click)="sendData()" [nzType]="'primary'" [nzSize]="'small'">发送</button>
+        </div>
+        <div nz-col [nzSpan]="6">
+            <button nz-button (click)="openMjActionPanel()" [nzType]="'primary'">麻将操作面板</button>
         </div>
     </div>
 </nz-content>

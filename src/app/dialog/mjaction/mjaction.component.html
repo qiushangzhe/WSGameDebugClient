@@ -1,0 +1,41 @@
+<div nz-row *ngFor="let item of cardGroup.group" style="margin-bottom:10px;">
+    <div nz-col [nzSpan]="12">
+        <nz-input [nzSize]="'large'" [nzPlaceHolder]="'输入麻将类型'" [(ngModel)]="item.type"></nz-input>
+    </div>
+    <div nz-col [nzSpan]="12">
+        <nz-input [nzSize]="'large'" [nzPlaceHolder]="'输入麻将点数'" [(ngModel)]="item.point"></nz-input>
+    </div>
+</div>
+<div nz-row>
+    <div nz-col [nzSpan]="6">
+        <button nz-button (click)="addCardToGroup()">添加麻将</button>
+    </div>
+    <div nz-col [nzSpan]="6">
+        <button nz-button (click)="deleteCardToGroup()">减少麻将</button>
+    </div>
+</div>
+<div nz-row>
+    <div nz-col [nzSpan]="6">
+        <button nz-button (click)="drawCard()">抓牌</button>
+    </div>
+    <div nz-col [nzSpan]="6">
+        <button nz-button (click)="disCard()">打牌</button>
+    </div>
+    <div nz-col [nzSpan]="6">
+        <button nz-button (click)="pengCard()">碰牌</button>
+    </div>
+    <div nz-col [nzSpan]="6">
+        <button nz-button (click)="huCard()">胡牌</button>
+    </div>
+</div>
+<div nz-row>
+    <div nz-col [nzSpan]="8">
+        <button nz-button (click)="mingGang()">明杠</button>
+    </div>
+    <div nz-col [nzSpan]="8">
+        <button nz-button (click)="anGang()">暗杠</button>
+    </div>
+    <div nz-col [nzSpan]="8">
+        <button nz-button (click)="buGang()">补杠</button>
+    </div>
+</div>
