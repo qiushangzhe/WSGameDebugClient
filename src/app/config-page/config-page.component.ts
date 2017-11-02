@@ -11,6 +11,7 @@ import { JsonEditorComponent, JsonEditorOptions } from 'angular4-jsoneditor/json
 })
 export class ConfigPageComponent implements OnInit {
   selectedMessage = null;
+  _flush = false;
   select = this.message.getMessageList();
   @ViewChild(JsonEditorComponent) editor: JsonEditorComponent;
   public editorOptions: JsonEditorOptions;
@@ -21,6 +22,8 @@ export class ConfigPageComponent implements OnInit {
   ) { 
     this.editorOptions = new JsonEditorOptions();
     this.editorOptions.modes = ['code','view'];
+    this.editorOptions.history = false;
+    this.editorOptions.search = false;
   }
 
   ngOnInit() {
@@ -47,5 +50,9 @@ export class ConfigPageComponent implements OnInit {
         this.select = this.message.getMessageList();
       }
     })
+  }
+
+  flush(event){
+    this._flush = !event;
   }
 }

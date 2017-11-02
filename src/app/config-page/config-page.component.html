@@ -1,14 +1,14 @@
 <nz-content>
     <div nz-row *ngIf="message.getMessageList().length>0">
         <div nz-col [nzSpan]="12">
-            <nz-select style="width:100%" [(ngModel)]="selectedMessage">
+            <nz-select style="width:100%" [(ngModel)]="selectedMessage" (nzOpenChange)="flush($event)">
                 <nz-option *ngFor="let option of select" [nzLabel]="option.desc" [nzValue]="option">
                 </nz-option>
             </nz-select>
         </div>
         <div nz-col [nzSpan]="12">
-            <div *ngIf="selectedMessage" style="height:400px">
-                <json-editor [options]="editorOptions" [data]="selectedMessage.data"></json-editor>Î
+            <div *ngIf="selectedMessage && _flush" style="height:400px">
+                <json-editor [options]="editorOptions" [data]="selectedMessage.data"></json-editor>
             </div>
         </div>
     </div>
