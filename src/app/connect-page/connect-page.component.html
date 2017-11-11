@@ -38,6 +38,22 @@
             </div>
         </div>
         <div nz-row [nzType]="'flex'" [nzAlign]="'middle'" class="item">
+            <nz-radio-group [(ngModel)]="playerChoose" [nzSize]="'large'">
+                <label nz-radio-button [nzValue]="1">
+                    <span>玩家1</span>
+                </label>
+                <label nz-radio-button [nzValue]="2">
+                    <span>玩家2</span>
+                </label>
+                <label nz-radio-button [nzValue]="3">
+                    <span>玩家3</span>
+                </label>
+                <label nz-radio-button [nzValue]="4">
+                    <span>玩家4</span>
+                </label>
+            </nz-radio-group>
+        </div>
+        <div nz-row [nzType]="'flex'" [nzAlign]="'middle'" class="item">
             <div nz-col [nzSpan]="6" class="key">
                 <nz-tag [nzColor]="'green'">操作</nz-tag>
             </div>
