@@ -40,24 +40,25 @@ export class ConnectPageComponent implements OnInit {
       this.common.errorTips('信息不全，连接操作禁止');
       return;
     }
-    const msg = `<h3>当前连接:${this.protol}${this.ip}:${this.port}</h3>`;
-    this.common.dialog({
-      title:'确认信息',
-      content:msg,
-      onOk:()=>{
-        console.log('连接');
-        this.connectClicked = true;
-        this.api.getWebSocketHandle(`${this.protol}${this.ip}:${this.port}`,()=>{
-          this.connectClicked = false;
-        });
-        this.api.bindOpenEvent(()=>{
-          this.connectClicked = false;
-          this.common.tips('连接创建成功');
-          this.router.navigate(['message']);
-          this.api.isconnect = true;
-        });
-      }
+    this.connectClicked = true;
+    this.api.getWebSocketHandle(`${this.protol}${this.ip}:${this.port}`,()=>{
+      this.connectClicked = false;
     });
+    this.api.bindOpenEvent(()=>{
+      this.connectClicked = false;
+      this.common.tips('连接创建成功');
+      this.router.navigate(['message']);
+      this.api.isconnect = true;
+    });
+    // const msg = `<h3>当前连接:${this.protol}${this.ip}:${this.port}</h3>`;
+    // this.common.dialog({
+    //   title:'确认信息',
+    
+    //   content:msg,
+    //   onOk:()=>{
+    //     console.log('连接');
+    //   }
+    // });
 
   
   }

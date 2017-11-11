@@ -22,6 +22,7 @@ export class MessagePageComponent implements OnInit {
 
   ngOnInit() {
       // this.contentBox.scrollTo(0,9999);
+      
   }
 
   clearAllMessage(){
@@ -46,5 +47,29 @@ export class MessagePageComponent implements OnInit {
         content : MjactionComponent,
         footer:false
       });
+  }
+
+  p1(){
+    this.clearAllMessage();
+    this.api.sendData(this.messageList[0].data);
+    this.api.sendData(this.messageList[1].data);
+  }
+
+  p2(){
+    this.clearAllMessage();
+    this.api.sendData(this.messageList[2].data);
+    this.api.sendData(this.messageList[1].data);
+  }
+
+  p3(){
+    this.clearAllMessage();
+    this.api.sendData(this.messageList[3].data);
+    this.api.sendData(this.messageList[1].data);
+  }
+
+  p4(){
+    this.clearAllMessage();
+    this.api.sendData(this.messageList[4].data);
+    this.api.sendData(this.messageList[1].data);
   }
 }

@@ -52,7 +52,7 @@ export class ApiService {
         this.websocketHandle.onmessage = func;
     }
 
-    sendData(data){
+    sendData(data:Object){
         this.websocketHandle.send(JSON.stringify(data));
     }
 

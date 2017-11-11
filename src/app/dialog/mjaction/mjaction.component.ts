@@ -29,11 +29,18 @@ export class MjactionComponent implements OnInit {
   }
 
   disCard(){
-
+    console.log(this.getNowCard(0));
+    this.api.sendData({
+      type : 1001,
+      data : this.getNowCard(0)
+    })
   }
 
   pengCard(){
-
+    this.api.sendData({
+      type : 1002,
+      data : this.getNowCard(0)
+    })
   }
 
   huCard(){
@@ -41,18 +48,27 @@ export class MjactionComponent implements OnInit {
   }
 
   mingGang(){
-
+    this.api.sendData({
+      type : 1004,
+      data : this.getNowCard(0)
+    })
   }
 
   anGang(){
-
+    this.api.sendData({
+      type : 1003,
+      data : this.getNowCard(0)
+    })
   }
 
   buGang(){
-
+    this.api.sendData({
+      type : 1005,
+      data : this.getNowCard(0)
+    })  
   }
 
-  getNowCard(){
-    console.log(this.cardGroup.group); 
+  getNowCard(index?):CardModel{
+    return this.cardGroup.group[index]; 
   }
 }
